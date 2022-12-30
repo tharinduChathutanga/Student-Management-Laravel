@@ -4,7 +4,7 @@ import { Head, Link } from '@inertiajs/inertia-vue3';
 
 const props = defineProps({
     students: Array
-})
+});
 
 </script>
 
@@ -61,8 +61,9 @@ const props = defineProps({
                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                   <span class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">{{student.status}}</span>
                 </td>
-                <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                  <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                <td class="flex space-x-2 relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                  <Link :href="`/students/${student.id}`" method="delete" as="button" type="button" class="text-red-600 hover:text-red-900">Delete</Link>
+                  <Link :href="`/students/${student.id}/edit`" class="text-indigo-600 hover:text-indigo-900">Edit</Link>
                 </td>
               </tr>
 

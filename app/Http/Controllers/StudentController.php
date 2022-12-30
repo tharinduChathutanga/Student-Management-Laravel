@@ -6,6 +6,7 @@ use Inertia\Inertia;
 use App\Models\Student;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 
 class StudentController extends Controller
 {
@@ -18,7 +19,7 @@ class StudentController extends Controller
                     'name' => $student->name,
                     'age' => $student->age,
                     'status' => $student->status,
-                    'image' => asset('storage/'. $student->image)                    
+                    'image' => asset('storage/app/public/'. $student->image)                    
                 ];
             })
         ]);
@@ -41,5 +42,35 @@ class StudentController extends Controller
         return Redirect::route('students.index');
     }
 
-    
+    public function edit(Student $student)
+    {
+        return Inertia::render('Students/Edit', [
+            'student' => $student,
+            'image' => asset('storage/'. $student->image)    
+        ]);
+    }
+
+    public function update(Student $student)
+    {
+        $image = $student -> image;
+        if(Request::file('image')){
+            Storage::delete('public/'. $student->image);
+            $image = Request::file('image')->store('students', 'public');
+        }
+        $student->update([
+            'name' => Request::input('name'),
+            'age' => Request::input('age'),
+            'status' => Request::input('status'),
+            'image' => $image
+        ]);
+        return Redirect::route('students.index');
+    }
+
+    public function destroy(Student $student)
+    {
+        Storage::delete('public/'. $student->image);
+        $student->delete();
+        return Redirect::route('students.index');
+
+    }
 }
