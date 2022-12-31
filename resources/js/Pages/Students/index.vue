@@ -59,7 +59,8 @@ const props = defineProps({
                   <div class="text-gray-900">{{student.age}}</div>
                 </td>
                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                  <span class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">{{student.status}}</span>
+                  <span class="inline-flex rounded-full bg-red-100 px-2 text-xs font-semibold leading-5 text-red-800" v-if="student.status == 0" >Inactive</span>
+                  <span class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800" v-else>Active</span>
                 </td>
                 <td class="flex space-x-2 relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                   <Link :href="`/students/${student.id}`" method="delete" as="button" type="button" class="text-red-600 hover:text-red-900">Delete</Link>

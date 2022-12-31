@@ -91,8 +91,8 @@ const form = useForm({
           <label for="status" class="block text-sm font-medium text-gray-700"> Status </label>
           <div class="mt-1">
             <select id="status" name="status" autocomplete="status" v-model="form.status" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-              <option>Active</option>
-              <option>Inactive</option>
+              <option value="1">Active</option>
+              <option value="0">Inactive</option>
             </select>
           </div>
         </div>
