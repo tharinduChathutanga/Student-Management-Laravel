@@ -19,7 +19,7 @@ class StudentController extends Controller
                     'name' => $student->name,
                     'age' => $student->age,
                     'status' => $student->status,
-                    'image' => asset('storage/app/public/'. $student->image)                    
+                    'image' => asset('storage/'. $student->image)                    
                 ];
             })
         ]);
