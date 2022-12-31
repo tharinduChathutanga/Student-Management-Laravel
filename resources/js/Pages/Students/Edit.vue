@@ -71,7 +71,7 @@ const form = useForm({
     <div class="pt-8">
       
       <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
-        <div class="sm:col-span-3">
+        <div class="sm:col-span-4">
           <label for="name" class="block text-sm font-medium text-gray-700"> Full name </label>
           <div class="mt-1">
             <input type="text" name="name" id="name" autocomplete="name" v-model="form.name" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
@@ -83,11 +83,11 @@ const form = useForm({
         <div class="sm:col-span-4">
           <label for="age" class="block text-sm font-medium text-gray-700"> Age</label>
           <div class="mt-1">
-            <input id="age" name="age" type="date" autocomplete="age" v-model="form.age" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+            <input id="age" name="age" type="text" autocomplete="age" v-model="form.age" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
           </div>
         </div>
 
-        <div class="sm:col-span-3">
+        <div class="sm:col-span-4">
           <label for="status" class="block text-sm font-medium text-gray-700"> Status </label>
           <div class="mt-1">
             <select id="status" name="status" autocomplete="status" v-model="form.status" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
