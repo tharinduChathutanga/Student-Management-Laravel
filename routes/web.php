@@ -35,7 +35,6 @@ Route::post('/students', [StudentController::class, 'store'])->name('students.st
 Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
 Route::put('/students/{student}', [StudentController::class, 'update'])->name('students.update');
 Route::delete('/students/{student}', [StudentController::class, 'destroy'])->name('students.destroy');
-Route::get('/students/{student}/active', [StudentController::class, 'active'])->name('students.active');
 Route::get('/students/{student}/edit', [StudentController::class, 'edit'])->name('students.edit');
 
 Route::middleware('auth')->group(function () {
